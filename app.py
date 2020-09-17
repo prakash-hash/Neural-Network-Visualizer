@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 import cv2
 from PIL import Image, ImageOps
 
-
 model = tf.keras.models.load_model('model.h5')
 
 #creating feature function which we will use to display layers
@@ -87,7 +86,7 @@ def get_random():
         numbers = np.squeeze(np.array(p)) #squeezing to removing the single demension
         
         #creating layers
-        plt.figure(figsize=(32,4))
+        fig = plt.figure(figsize=(32,4))
         
         if layer == 2: # final output layer
             row = 1   
@@ -107,7 +106,7 @@ def get_random():
         plt.subplots_adjust(wspace=0.05, hspace=0.05) #packing the nodes
         plt.tight_layout()
         st.text('Layer {}'.format(layer + 1))
-        st.pyplot()
+        st.pyplot(fig)
     st.markdown('## Final Prediction = {}'.format(np.argmax(preds[2])))
 
 def get_random_u(image):

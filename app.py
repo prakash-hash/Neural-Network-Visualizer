@@ -35,14 +35,9 @@ def get_predictions_user_image(image):
 
 # if __name__ == '__main__':
 #     app.run()
-    e97171
-st.set_option('deprecation.showfileUploaderEncoding', False)
-st.title('Nerual Network Visualizer')
-st.markdown('<style>h1{color: #e97171;}</style>', unsafe_allow_html=True)
-st.sidebar.markdown('<h1 style="color:#e97171">Input Image</h1>', unsafe_allow_html=True)
-
 def binarize(image):
-    image = cv2.imread(image)
+    image = np.array(image)
+    image = image[:, :, ::-1].copy()
     grey = cv2.cvtColor(image.copy(), cv2.COLOR_BGR2GRAY)
     # Convert RGB to BGR 
     grey = cv2.cvtColor(image.copy(), cv2.COLOR_BGR2GRAY)
@@ -115,8 +110,8 @@ def get_random():
         st.pyplot()
     st.markdown('## Final Prediction = {}'.format(np.argmax(preds[2])))
 
-def get_random_u(file_upload):
-    b_image = binarize(file_upload)
+def get_random_u(image):
+    b_image = binarize(image)
     st.sidebar.image(b_image, width = 150)
     preds = get_predictions_user_image((b_image))
     final_preds = [i.tolist() for i in preds]
@@ -155,11 +150,21 @@ def get_random_u(file_upload):
         st.pyplot()
     st.markdown('## Final Prediction = {}'.format(np.argmax(preds[2])))
 
-file_upload = None
-if st.button('Get random predictions'):
-    get_random()
-    file_upload = None
+def main():
+    st.set_option('deprecation.showfileUploaderEncoding', False)
+    st.title('Nerual Network Visualizer')
+    st.markdown('<style>h1{color: #e97171;}</style>', unsafe_allow_html=True)
+    st.sidebar.markdown('<h1 style="color:#e97171">Input Image</h1>', unsafe_allow_html=True)
 
-if st.button('Upload'):
-    file_upload = easygui.fileopenbox()
-    get_random_u(file_upload)
+    if st.button('Get random predictions'):
+        get_random()
+
+    
+    file_upload = st.file_uploader('Or choose an number\'s image to upload', type=['jpeg','png','jpg','webp'])
+    if file_upload is not None:
+        image = Image.open(file_upload).convert('RGB')
+        if st.button('Predict'):
+            get_random_u(image)
+
+if __name__ == "__main__":
+    main()

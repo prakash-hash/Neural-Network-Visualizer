@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 from PIL import Image, ImageOps
-import easygui
+
 
 model = tf.keras.models.load_model('model.h5')
 

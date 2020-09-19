@@ -1,4 +1,5 @@
 # Neural-Network-Visualizer
+https://s4a.streamlit.io/prakash-hash/neural-network-visualizer/master/app.py/+/
 
 A Simple neural network visualizer which is trained on the mnist dataset with simple neural network with tensorflow.</br>
 It shows 3 layers. The first 2 layers are the hidden Dense layer with 32 nodes each and represent 32 subplots in each layer.</br>

@@ -9,16 +9,9 @@ All the backend work done in python and the frontend work done on <a href="https
 ![Screenshot](nnv.png)
 
 If you want to test by uploading an image you can choose the browse image option. Below are some examples of images that shows what should be the format of image<br>
-# _
-![Screenshot](img/1.png)
-# _
-![Screenshot](img/2.png)
-# _
-![Screenshot](img/3.png)
-# _
-![Screenshot](img/4.png)
-# _
-![Screenshot](img/5.png)
-# _
-![Screenshot](img/6.png)
-# _
+# ![Screenshot](img/1.png)
+# ![Screenshot](img/2.png)
+# ![Screenshot](img/3.png)
+# ![Screenshot](img/4.png)
+# [Screenshot](img/5.png)
+# ![Screenshot](img/6.png)
